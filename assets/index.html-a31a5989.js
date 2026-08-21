@@ -1,0 +1,1 @@
+import{_ as o}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c as n,a as e}from"./app-26293047.js";const s={},_=e("p",null,"欢迎来到 boo's blog！这里将分享我的前端学习笔记、技术心得和生活记录。",-1),c=e("p",null,"你可以通过导航栏浏览文章，也可以通过左侧的侧边栏分类查看文章。",-1),l=[_,c];function r(a,i){return t(),n("div",null,l)}const m=o(s,[["render",r],["__file","index.html.vue"]]);export{m as default};
