@@ -1,6 +1,7 @@
 ---
 title: Homebrew 工具集
 icon: tools
+article: false
 category:
   - 指南
   - 工具
