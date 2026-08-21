@@ -6,15 +6,10 @@ export default sidebar({
     {
       text: "使用说明",
       icon: "book",
-      prefix: "guide/",
-      link: "guide/",
+      link: "/guide/",
       children: [
-        "guide/README",
-        {
-          text: "Homebrew 工具集",
-          icon: "tools",
-          link: "guide/tools/",
-        },
+        "/guide/",
+        "/guide/tools/",
       ],
     },
     // 添加你的侧边栏结构，例如：
