@@ -8,7 +8,14 @@ export default sidebar({
       icon: "book",
       prefix: "guide/",
       link: "guide/",
-      children: "structure",
+      children: [
+        "guide/README",
+        {
+          text: "Homebrew 工具集",
+          icon: "tools",
+          link: "guide/tools/",
+        },
+      ],
     },
     // 添加你的侧边栏结构，例如：
     // {

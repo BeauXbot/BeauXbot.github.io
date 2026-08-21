@@ -6,7 +6,7 @@ title: 博客主页
 heroImage: /logo.svg
 heroText: boo's blog
 heroFullScreen: true
-tagline: 记录前端学习与生活的个人博客
+tagline: 记录学习与生活的个人博客
 footer: boo's blog | 使用 vuepress-theme-hope
 ---
 
