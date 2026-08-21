@@ -1,0 +1,51 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as n,c as a,e as i}from"./app-c560c336.js";const d={},t=i(`<h1 id="tectonic-自包含的现代-tex-latex-引擎" tabindex="-1"><a class="header-anchor" href="#tectonic-自包含的现代-tex-latex-引擎" aria-hidden="true">#</a> tectonic（自包含的现代 TeX/LaTeX 引擎）</h1><blockquote><p>Homebrew 版本 0.15.0 ｜ 主页：见官方文档 ｜ 安装：<code>brew install tectonic</code></p></blockquote><h2 id="一、它是什么" tabindex="-1"><a class="header-anchor" href="#一、它是什么" aria-hidden="true">#</a> 一、它是什么</h2><p>tectonic 是一个自包含（self-contained）、基于 WebAssembly 重构的现代 TeX/LaTeX 排版引擎。它把完整的一整套 TeX 发行版（包括全部宏包、字体、格式文件）打包进单个二进制中，并在首次编译时自动从网络拉取所需资源，彻底省去传统 TeX Live 那套庞大的安装与配置流程。</p><p>它主要解决传统 LaTeX 环境安装繁琐、依赖混乱、跨机器不一致的问题，适合用于自动化文档构建（CI/CD）、快速写论文/报告/简历，以及把排版能力嵌入到脚本或编程语言中。典型场景包括：在 GitHub Actions 里自动编译 PDF、用一条命令在无 TeX Live 的服务器上编译 LaTeX 文档。</p><h2 id="二、安装与升级" tabindex="-1"><a class="header-anchor" href="#二、安装与升级" aria-hidden="true">#</a> 二、安装与升级</h2><p>通过 Homebrew 安装：</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 安装</span>
+brew <span class="token function">install</span> tectonic
+
+<span class="token comment"># 升级到最新版本</span>
+brew upgrade tectonic
+
+<span class="token comment"># 卸载</span>
+brew uninstall tectonic
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>验证安装是否成功（应输出版本号 0.15.0）：</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>tectonic <span class="token parameter variable">--version</span>
+<span class="token comment"># 输出示例：</span>
+<span class="token comment"># tectonic 0.15.0</span>
+<span class="token comment"># Copyright (C) 2016-2024 ...</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>查看帮助与子命令：</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>tectonic <span class="token parameter variable">--help</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="三、常用命令速查" tabindex="-1"><a class="header-anchor" href="#三、常用命令速查" aria-hidden="true">#</a> 三、常用命令速查</h2><table><thead><tr><th>命令</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><code>tectonic FILE.tex</code></td><td>编译单个 LaTeX 文档为 PDF（最常用）</td><td><code>tectonic main.tex</code></td></tr><tr><td><code>tectonic --keep-logs FILE.tex</code></td><td>编译后保留日志文件</td><td><code>tectonic --keep-logs main.tex</code></td></tr><tr><td><code>tectonic -o out.pdf FILE.tex</code></td><td>指定输出 PDF 的文件名</td><td><code>tectonic -o report.pdf main.tex</code></td></tr><tr><td><code>tectonic --outdir DIR FILE.tex</code></td><td>指定输出目录</td><td><code>tectonic --outdir build main.tex</code></td></tr><tr><td><code>tectonic --print FILE.tex</code></td><td>输出文档正文（去排版）的文本</td><td><code>tectonic --print main.tex</code></td></tr><tr><td><code>tectonic --compile-all FILE.tex</code></td><td>完整编译（不跳过辅助文件/多次传递）</td><td><code>tectonic --compile-all thesis.tex</code></td></tr><tr><td><code>tectonic --help</code></td><td>显示全部选项</td><td><code>tectonic --help</code></td></tr><tr><td><code>tectonic --version</code></td><td>显示版本号</td><td><code>tectonic --version</code></td></tr><tr><td><code>tectonic --chatter minimal FILE.tex</code></td><td>减少输出信息（安静模式）</td><td><code>tectonic --chatter minimal main.tex</code></td></tr></tbody></table><blockquote><p>说明：<code>-o</code> 与 <code>--outdir</code> 是 0.15.x 新引入的输出选项；旧版部分行为（如往 <code>tectonic_aux_files</code> 目录写中间文件）在新版本中已统一收敛到 <code>--outdir</code>/<code>--keep-logs</code> 等机制。</p></blockquote><h2 id="四、实际示例" tabindex="-1"><a class="header-anchor" href="#四、实际示例" aria-hidden="true">#</a> 四、实际示例</h2><h3 id="示例-1-最小文档快速出-pdf" tabindex="-1"><a class="header-anchor" href="#示例-1-最小文档快速出-pdf" aria-hidden="true">#</a> 示例 1：最小文档快速出 PDF</h3><p>准备一个最小 LaTeX 文件：</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 创建 main.tex</span>
+<span class="token function">cat</span> <span class="token operator">&gt;</span> main.tex <span class="token operator">&lt;&lt;</span><span class="token string">&#39;EOF&#39;
+\\documentclass{article}
+\\begin{document}
+Hello, Tectonic! This is a self-contained modern LaTeX engine.
+\\end{document}
+EOF</span>
+
+<span class="token comment"># 编译（首次会自动下载缺失的宏包与格式文件）</span>
+tectonic main.tex
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>执行后会生成 <code>main.pdf</code>。首次运行 tectonic 会在后台下载 <code>format</code> 与所需宏包并缓存到本地，之后再次编译即为纯离线、秒级完成。</p><h3 id="示例-2-生成带图片与公式的完整报告" tabindex="-1"><a class="header-anchor" href="#示例-2-生成带图片与公式的完整报告" aria-hidden="true">#</a> 示例 2：生成带图片与公式的完整报告</h3><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">cat</span> <span class="token operator">&gt;</span> report.tex <span class="token operator">&lt;&lt;</span><span class="token string">&#39;EOF&#39;
+\\documentclass[a4paper,11pt]{article}
+\\usepackage{graphicx}
+\\usepackage{amsmath}
+\\begin{document}
+\\section*{结果}
+
+欧拉公式：
+\\begin{equation}
+e^{i\\pi} + 1 = 0
+\\end{equation}
+
+插图（假设存在 figure.png）：
+\\begin{center}
+\\includegraphics[width=0.5\\textwidth]{figure.png}
+\\end{center}
+\\end{document}
+EOF</span>
+
+<span class="token comment"># 指定输出文件名</span>
+tectonic <span class="token parameter variable">-o</span> report.pdf report.tex
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>用 <code>\\usepackage{graphicx}</code>、<code>\\usepackage{amsmath}</code> 等常用宏包时无需手动安装，tectonic 会自动按需拉取。</p><h3 id="示例-3-用-print-提取纯文本内容" tabindex="-1"><a class="header-anchor" href="#示例-3-用-print-提取纯文本内容" aria-hidden="true">#</a> 示例 3：用 <code>--print</code> 提取纯文本内容</h3><p>用于快速核对文档正文或做全文检索：</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code>tectonic <span class="token parameter variable">--print</span> report.tex
+<span class="token comment"># 会输出去除了排版标记的纯文本，便于 grep 检索</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="示例-4-在-ci-中自动化编译" tabindex="-1"><a class="header-anchor" href="#示例-4-在-ci-中自动化编译" aria-hidden="true">#</a> 示例 4：在 CI 中自动化编译</h3><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 在 GitHub Actions / 本地脚本中一行搞定，无需安装 TeX Live</span>
+tectonic <span class="token parameter variable">--outdir</span> dist --keep-logs main.tex
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>配合 <code>--outdir</code> 把产物集中到 <code>dist/</code>，配合 <code>--keep-logs</code> 保留编译日志便于排查错误。</p><h2 id="五、进阶技巧与配置" tabindex="-1"><a class="header-anchor" href="#五、进阶技巧与配置" aria-hidden="true">#</a> 五、进阶技巧与配置</h2><ul><li><strong>离线缓存与格式文件</strong>：tectonic 首次下载的格式文件和宏包会缓存在本地（macOS 上默认在 <code>~/Library/Caches/Tectonic</code>，Linux 下在 <code>$XDG_CACHE_HOME/tectonic</code>）。批量/反复编译前先跑一次预热，后续即可离线快速编译。</li><li><strong>环境变量 <code>TECTONIC_CACHE_DIR</code></strong>：可自定义缓存目录，便于多环境共享或 CI 中持久化缓存以加速构建。</li><li><strong>多遍编译（biber/引用）</strong>：含 <code>\\bibliography</code>/<code>biber</code> 的文档建议加 <code>--compile-all</code> 强制多次传递，保证交叉引用与参考文献编号正确。</li><li><strong>与编辑器/脚本搭配</strong>：tectonic 是无状态单命令工具，非常适合配合 VS Code LaTeX 插件、Makefile、或 <code>watchexec</code> 监听文件变更自动重编译：</li></ul><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 监听 main.tex 变化并自动重新编译</span>
+watchexec <span class="token parameter variable">-w</span> main.tex tectonic main.tex
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul><li><strong>输出选项差异</strong>：0.15.x 默认把中间辅助文件与最终产物统一处理；用 <code>--outdir</code> 指定输出目录可避免污染源码目录，用 <code>--keep-logs</code> 保留 <code>.log</code> 便于排查。</li></ul><h2 id="六、注意事项与常见问题" tabindex="-1"><a class="header-anchor" href="#六、注意事项与常见问题" aria-hidden="true">#</a> 六、注意事项与常见问题</h2><ul><li><strong>网络依赖</strong>：首次编译需要联网下载宏包与格式文件。离线环境请先用在线机器做一次&quot;预热&quot;，或预先准备缓存目录并设置 <code>TECTONIC_CACHE_DIR</code> 指向它。</li><li><strong>宏包/格式版本</strong>：tectonic 使用自己打包的 TeX 格式与宏包版本，与 TeX Live 的版本号并不一一对应。个别古老或冷门宏包可能不被内置，遇到缺失时报错提示 &quot;could not find package&quot;，请更换为等价替代宏包。</li><li><strong>无网络时的报错</strong>：若下载失败会报网络类错误（如 TLS/404）。先检查网络或代理设置；企业内网可配置 <code>https_proxy</code> 等代理环境变量。</li><li><strong>不要混用旧版输出习惯</strong>：0.15.x 调整了部分命令行选项（如输出文件名/目录的指定方式），从旧版本升级后请以 <code>tectonic --help</code> 的实际输出为准，避免依赖已废弃的行为。</li><li><strong>性能注意</strong>：大文档（数百页、大量图片）首次格式加载仍有一次开销，建议预热缓存；后续增量编译速度很快。</li><li><strong>安全提示</strong>：tectonic 支持 shell 转义与外部程序调用（<code>\\write18</code>），默认禁用；编译不可信来源的 <code>.tex</code> 文件时尽量保持默认关闭，避免执行恶意系统命令。</li></ul>`,35),c=[t];function s(o,l){return n(),a("div",null,c)}const u=e(d,[["render",s],["__file","tectonic.html.vue"]]);export{u as default};
