@@ -9,7 +9,13 @@ export default sidebar({
       link: "/guide/",
       children: [
         "/guide/",
-        "/guide/tools/",
+        {
+          text: "Homebrew 工具集",
+          icon: "tools",
+          prefix: "guide/tools/",
+          link: "guide/tools/",
+          children: "structure",
+        },
       ],
     },
     // 添加你的侧边栏结构，例如：
