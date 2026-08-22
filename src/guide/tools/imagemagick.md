@@ -40,6 +40,8 @@ magick -version
 
 安装后 `magick`、`convert`、`identify`、`montage`、`mogrify`、`compare` 等命令即进入 PATH，直接可全局调用。ImageMagick 默认编译了大量格式支持（JPEG、PNG、GIF、TIFF、WebP、HEIC 等），无需额外安装编解码器即可覆盖绝大多数场景。
 
+> 可选依赖：如需更强的编解码能力（HEIC、RAW、PDF 页级转换等），可安装 `brew install heif libheif libraw ghostscript` 等。查看当前缺失的 delegate 可用 `magick -list delegate`，再针对性安装。
+
 ## 三、常用命令速查
 
 | 命令 | 参数说明 | 示例 |
@@ -142,7 +144,7 @@ identify before_after.png
 
 ## 五、进阶技巧与配置
 
-**1. 用 `-path` 避免覆盖原文件**
+### 5.1 用 `-path` 避免覆盖原文件
 
 `mogrify` 默认原地覆盖。批量处理时用 `-path 输出目录` 把结果写到新目录，避免误毁原图：
 
@@ -150,31 +152,90 @@ identify before_after.png
 mogrify -resize 50% -quality 80 -path ./thumb/ *.jpg
 ```
 
-**2. 一次批量处理多张图 + 并发加速**
+> 注意：`mogrify -path` 输出的**文件名与输入保持一致**。若需改名，用 `-set filename:out "%t"` 等 `%[filename]` 转义，或配合 `find/xargs` 逐张处理。
 
-用 shell 循环或 `mogrify` 批量处理。多核机器上可用 `-define magick:threads=4` 或设置 `MAGICK_THREAD_LIMIT` 环境变量控制并发，避免拖垮机器：
+### 5.2 并发加速与资源限制
+
+多核机器上 ImageMagick 默认尽量多线程，但海量小图时单进程反而更快。可按需控制：
 
 ```bash
-# 环境变量控制线程数（1 到 N，N 为 CPU 核心数）
+# 环境变量控制全局线程数
 export MAGICK_THREAD_LIMIT=4
-# 在脚本里临时限制
+
+# 单条命令内临时限制（-limit 语法）
 magick -limit thread 2 -resize 50% big.png out.png
+
+# 用 xargs 的 -P 做进程级并发（每个进程 1 线程，互不干扰）
+find . -name '*.jpg' -print0 | xargs -0 -P 4 -I{} \
+  mogrify -resize 800x -path ./out/ {}
 ```
 
-**3. 与脚本/其他工具搭配（批量压缩 + 排序输出）**
+原则：大图、多核重活优先 `-limit thread` 单进程多线程；海量小文件优先 `xargs -P` 多进程。
+
+### 5.3 格式转换工作流（JPEG / PNG / WebP / AVIF）
+
+ImageMagick 是天然的"格式枢纽"，靠**输出扩展名**决定目标格式：
 
 ```bash
-# 把当前目录所有 JPEG 缩放到 800 宽并按文件名排序输出
-find . -name '*.jpg' -print0 | sort -z | xargs -0 -I{} magick {} -resize 800x -path ./out/ {}.thumb.jpg
+# 统一转成质量 80 的 WebP（体积约为 JPEG 的 60-70%）
+magick photo.png -strip -quality 80 photo.webp
+
+# 转成 AVIF（新一代，体积更小，兼容性逐年提升）
+magick photo.png -strip -quality 60 photo.avif
+
+# 保留透明通道转 PNG，去掉背景转 JPEG（JPEG 不支持透明，需先填白底）
+magick photo.png -background white -flatten photo.jpg
+
+# 批量：png -> webp，保留原文件名
+find . -name '*.png' -print0 | while IFS= read -r -d '' f; do
+  magick "$f" -strip -resize 1200x -quality 80 "${f%.png}.webp"
+done
 ```
 
-**4. 配置与委托（delegates）**
+常用工作流建议：
 
-- 环境变量：`MAGICK_HOME` 指向安装目录，`MAGICK_CONFIGURE_PATH` 指向配置文件目录，`MAGICK_FONT_PATH` 指定字体搜索路径（处理中文水印时把中文字体目录加进来可避免乱码）。
-- 配置文件：ImageMagick 从编译时预设的路径（Homebrew 下为 `/usr/local/etc/ImageMagick-7` 或 `/opt/homebrew/etc/ImageMagick-7`）读取 `policy.xml`（安全策略）、`delegates.xml`（委托外部程序）、`colors.xml`、`type.xml` 等。查看实际路径：
+- **网站首图**：WebP `-quality 80` + `-strip`（去 EXIF/ICC 等元数据，进一步减小体积）。
+- **需兼容老环境**：JPEG `-quality 82` + `-interlace Plane`（渐进式，Web 友好）。
+- **图标/贴纸**：PNG，可加 `-strip` 去冗余元数据。
+- **动画**：GIF 保留多帧，`-coalesce` 统一各帧画布；转 WebP 动画用 `-loop 0`。
+
+### 5.4 批量处理 + 排序输出
+
+```bash
+# 当前目录所有 JPEG 缩放到 800 宽，按文件名排序，输出到 out/
+find . -name '*.jpg' -print0 | sort -z | xargs -0 -I{} \
+  magick {} -resize 800x -path ./out/ {}.thumb.jpg
+```
+
+### 5.5 批量缩放不超尺寸（fit within）与裁剪填充（cover）
+
+区分两种需求：
+
+```bash
+# 等比缩放，确保完全落在 800x600 内（不变形，可能小于画布）
+magick in.png -resize 800x600 -background white -gravity center -extent 800x600 out.png
+
+# 填充裁剪：先放大铺满再居中裁出 800x600（封面图常用，不留白）
+magick in.png -resize 800x600^ -gravity center -extent 800x600 out.png
+```
+
+`800x600^` 的 `^` 表示"放大到至少填满"，配合 `-extent` 裁出精确尺寸，是制作博客封面/轮播图的黄金组合。
+
+### 5.6 配置与委托（delegates）
+
+- 环境变量：
+  - `MAGICK_HOME`：安装根目录。
+  - `MAGICK_CONFIGURE_PATH`：配置文件搜索路径（可叠加多个，用系统路径分隔符 `:` 分隔）。
+  - `MAGICK_FONT_PATH`：字体搜索路径，处理中文水印时把中文字体目录加进来可避免乱码。
+  - `MAGICK_THREAD_LIMIT`：全局线程上限（0 表示不限制，遵循 CPU）。
+  - `MAGICK_MEMORY_LIMIT` / `MAGICK_MAP_LIMIT` / `MAGICK_DISK_LIMIT`：全局内存/映射/磁盘上限，等效 `-limit` 的持久化版本。
+- 配置文件：ImageMagick 从编译时预设的路径（Homebrew 下为 `/usr/local/etc/ImageMagick-7` 或 `/opt/homebrew/etc/ImageMagick-7`）读取 `policy.xml`（安全策略）、`delegates.xml`（委托外部程序）、`colors.xml`、`type.xml` 等。查看实际生效路径：
 
 ```bash
 magick -debug configure info: 2>&1 | grep -i config
+# 或直接打印配置汇总
+magick -version
+magick -list configure | grep -E 'PREFIX|CONFIGURE|FONT'
 ```
 
 - 查看已支持的编码器与委托工具：
@@ -184,11 +245,42 @@ magick -list format
 magick -list delegate
 ```
 
+> **个性化实用配置**：若嫌中文字体每次都要 `-font` 指定，可新建 `type.xml` 片段并入搜索路径，或用 `-define` 设置默认滤镜。更简单的做法：为常用风格写一个 shell 函数（见第七节）。
+
+### 5.7 常用 `-define` 与滤镜选项
+
+- `-define jpeg:size=1000x1000`：JPEG **分块解码**，读取大图只解码到所需尺寸再缩放，极大省内存（先缩后解）。
+- `-define filter:support=2.0` / `-filter Lanczos`：控制缩放滤镜质量，`Lanczos`、`LanczosSharp`、`Catrom` 质量较高但慢；`Triangle`、`Box` 快但糊。默认 `Undefined`（自动）。
+- `-strip`：删除全部元数据（EXIF、XMP、ICC、注释），压缩利器。
+- `-interlace Plane`：写渐进式 JPEG；`-interlace None` 写基线式。
+- `-sharpen 0x1`：缩放后轻度锐化，弥补重采样损失。
+- `-dither FloydSteinberg` / `-colors 256`：量化到 256 色，GIF/缩略图减体积。
+
+### 5.8 颜色空间与通道处理
+
+```bash
+# 转灰度（灰度图体积约为 RGB 的 1/3）
+magick in.png -colorspace Gray out.png
+
+# 转 sRGB（跨设备统一显示）
+magick in.jpg -colorspace sRGB out.jpg
+
+# 提取/合成单通道（制作透明遮罩）
+magick in.png -alpha extract mask.png
+
+# 反转遮罩（黑白对调）
+magick mask.png -negate mask_inv.png
+```
+
+`-colorspace Gray`、`-alpha extract` 在制作抠图遮罩、缩略图占位图时很常用。
+
 ## 六、注意事项与常见问题
 
 **1. 7.x 的 `convert` 已变体**
 
 ImageMagick 7 统一使用 `magick`，旧的 `convert` 被重命名为 `convert`（`magick convert` 别名）。Homebrew 安装 7.x 后 `convert` 命令默认仍指向 `magick` 的兼容入口，但建议新脚本直接用 `magick`，避免与系统其他软件（如 macOS 自带的 `convert`）冲突。
+
+> 排障：若 `magick` 提示 `command not found`，先 `brew link imagemagick` 或在 shell 中 `export PATH="/opt/homebrew/bin:$PATH"`（Apple Silicon）。
 
 **2. `-crop` 的 `+x+y` 是"原点偏移"而非裁剪尺寸**
 
@@ -211,15 +303,22 @@ magick photo.png -font /System/Library/Fonts/PingFang.ttc -pointsize 60 \
 
 若 `-font` 解析失败，先 `magick -list font | grep -i pingfang` 确认可用字体名。
 
+> 注意：`-annotate` 有 `+y`（基线偏上）与 `-y`（基线偏下）方向差异；`-draw "text ..."` 走不同渲染路径，转义规则略异，混用时易踩坑。含中文/空格/特殊字符时建议用 `-annotate` 并用双引号包裹。
+
 **4. 大图处理的内存/磁盘开销**
 
 处理超大图（几百 MB 像素）时 ImageMagick 会占用大量内存，可能 OOM 崩溃。用 `-limit` 限制资源，或改用流式处理：
 
 ```bash
 magick -limit memory 1GiB -limit map 2GiB -resize 50% huge.tif out.png
+
+# 超大图优先"先缩后解"（jpeg:size 仅分块解码，大幅省内存）
+magick -define jpeg:size=2000x2000 huge.jpg -resize 50% out.png
 ```
 
 处理大量文件时优先 `mogrify -path` 输出到独立目录，便于中途失败时重跑不覆盖原图。
+
+> 磁盘：当内存/map 用尽时图像落盘到临时文件，注意 `TMPDIR` 所在分区剩余空间；`-limit disk` 可设上限。
 
 **5. `-quality` 对 JPEG/PNG/WebP 含义不同**
 
@@ -228,17 +327,28 @@ magick -limit memory 1GiB -limit map 2GiB -resize 50% huge.tif out.png
 - WebP：0-100，意义同 JPEG。
 做"压缩"时先明确目标格式再设 `-quality`，否则可能无效。
 
+> 常见误解：对 PNG 设 `-quality 50` 不会让画质变差，只是压缩级别；真正减少 PNG 体积常用 `-strip` + 降位深 + 调色板（`-colors 256`）。
+
 **6. 安全注意：`policy.xml` 与恶意文件**
 
-ImageMagick 历史上出现过解析恶意 SVG/MVg 文件导致代码执行的漏洞。生产环境建议收紧 `policy.xml`，禁用有风险的 delegate（如 `MVG`、`PS`、`EPHEMERAL`、`URL` 读取），例如：
+ImageMagick 历史上出现过解析恶意 SVG/MVg 文件导致代码执行的漏洞（如 2016 年的 ImageTragick）。生产环境建议收紧 `policy.xml`，禁用有风险的 delegate（如 `MVG`、`PS`、`EPHEMERAL`、`URL` 读取）：
 
 ```xml
+<!-- 放在 <policymap> ... </policymap> 内部 -->
 <policy domain="coder" rights="none" pattern="MVG" />
 <policy domain="coder" rights="none" pattern="URL" />
 <policy domain="coder" rights="none" pattern="EPHEMERAL" />
+<policy domain="coder" rights="none" pattern="HTTPS" />
+<policy domain="coder" rights="none" pattern="HTTP" />
+<policy domain="delegate" rights="none" pattern="gs" />
 ```
 
-处理不可信来源的图片时，先用 `identify` 查看基本信息，并限制 `-limit` 资源，避免被恶意文件拖垮。
+其他建议：
+
+- 处理不可信来源的图片前，先 `identify` 看基本信息；不确定时不要直接 `-composite` 或触发 delegate。
+- 限制资源：`-limit memory 256MiB -limit map 256MiB -limit disk 1GiB -limit time 30`。
+- 上传接口：先做格式白名单校验（扩展名+`magick -format %m` 实际探测），禁用 SVG/PDF 直传。
+- 定期 `brew upgrade imagemagick` 拉取安全修复。
 
 **7. 脚本中等待/进度输出**
 
@@ -247,3 +357,178 @@ ImageMagick 历史上出现过解析恶意 SVG/MVg 文件导致代码执行的�
 ```bash
 magick -monitor -resize 50% -path out/ *.jpg
 ```
+
+**8. 常见报错速查**
+
+- `no decode delegate for this image format` / `unable to open image`: 缺格式 delegate，先 `magick -list format` 确认，安装对应 Homebrew 包（如 HEIC→`brew install libheif`，SVG→`brew install librsvg`）。
+- `cache resources exhausted`: 内存/map 超限，用 `-limit memory`/`-limit map` 放大或走流式。
+- `unable to read font`: `-font` 路径错误或字体缺失，`magick -list font` 查可用名。
+- `improper image header` / `invalid colormap index`: 源文件损坏，先 `identify` 复核。
+- `Segmentation fault`：多在旧版本或特定 delegate 上，优先升级/复现最小命令。
+- 权限类：Homebrew 目录只读时改 `-path` 输出到用户可写目录，别用 `sudo` 乱改 `/opt/homebrew/etc`。
+
+## 七、实战：与其它工具搭配与自动化
+
+### 7.1 与 `find` / `xargs` 的批量管道
+
+海量文件批处理的标准姿势：用 `-print0`/`-0` 规避文件名中的空格，`xargs -P` 并行：
+
+```bash
+# 全部 JPG 压成 WebP（保留比例、最长边 1200）
+find . -name '*.jpg' -print0 | xargs -0 -P 4 -I{} \
+  magick {} -strip -resize '1200x>' -quality 82 {}.webp
+# '1200x>' 表示"仅当大于 1200 时才缩小"，避免放大糊图
+
+# 全部 PNG 统一缩放到宽 400 并改名 _thumb
+find . -name '*.png' -print0 | while IFS= read -r -d '' f; do
+  magick "$f" -resize 400x -quality 85 "${f%.png}_thumb.png"
+done
+```
+
+### 7.2 Makefile 自动化
+
+适合"有输入、有产物"的图片构建流，支持增量构建（源没变就不重跑）：
+
+```makefile
+# Makefile —— 站点图片优化
+SRC := $(wildcard img-src/*.png)
+OUT := $(patsubst img-src/%.png,img-out/%.webp,$(SRC))
+
+all: $(OUT)
+
+img-out/%.webp: img-src/%.png | img-out
+	magick $< -strip -resize '1200x>' -quality 80 $@
+
+img-out:
+	mkdir -p $@
+
+# 把目录下所有 png 生成一张缩略图拼图
+sprite.png: $(SRC)
+	montage $^ -tile 5x -geometry 200x200+8+8 -background none $@
+
+clean:
+	rm -rf img-out sprite.png
+```
+
+用法：`make` 全量、`make img-out/a.webp` 单张、`make clean` 清理。`$<`=首个依赖、`$@`=目标、`$^`=全部依赖。
+
+### 7.3 CI 集成（GitHub Actions）
+
+在 CI 里批量压缩图片并提交回仓库（需配套 `actions/checkout` 与 `stefanzweifel/git-auto-commit-action` 类步骤）：
+
+```yaml
+# .github/workflows/optimize-images.yml
+name: Optimize images
+on:
+  push:
+    paths: ['public/images/**']
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - name: Optimize WebP
+        run: |
+          find public/images -name '*.png' -o -name '*.jpg' | while read f; do
+            magick "$f" -strip -resize '1600x>' -quality 80 "${f%.*}.webp"
+          done
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: optimize images"
+```
+
+要点：CI 环境常是 Debian 系（无 Homebrew），用 `apt-get` 装；可加 `gh-actions-cache` 缓存 delegate 安装以提速；输出到独立目录再 git add，避免污染源图。
+
+### 7.4 与其他工具的管道
+
+ImageMagick 走标准输入输出，可接入各种工具链：
+
+```bash
+# 截图 → 处理 → 直接粘贴到剪贴板（macOS）
+screencapture -x -t png - | magick - -resize 50% - | pbcopy
+
+# 生成缩略图并上传到对象存储（配合 curl）
+magick in.png -resize 400x thumb.png && curl -F "file=@thumb.png" https://oss.example.com/upload
+
+# 用变量记录尺寸再做条件分支（配合 shell）
+w=$(magick in.png -format "%w" info:)
+[ "$w" -gt 1200 ] && magick in.png -resize 1200x out.png
+
+# 对比两张图（配合 compare 输出差异图/度量）
+compare -metric RMSE before.png after.png diff.png 2>&1
+# 配合 jq 解析 JSON 型像素差度量
+compare -metric PSNR before.png after.png null: 2>&1
+```
+
+### 7.5 生产级脚本模板
+
+一个带参数、幂等、可重入的批量处理脚本骨架：
+
+```bash
+#!/usr/bin/env bash
+# imgflow —— 站点图片批量处理入口
+set -euo pipefail
+
+SRC_DIR="${1:-./img-src}"   # 源目录
+OUT_DIR="${2:-./img-out}"   # 输出目录
+QUALITY="${QUALITY:-80}"    # 可由环境变量覆盖
+MAX_W="${MAX_W:-1600}"      # 最长边上限
+THREADS="${THREADS:-$(nproc)}"
+
+mkdir -p "$OUT_DIR"
+export MAGICK_THREAD_LIMIT=1   # 让 xargs -P 进程级并行接管
+
+find "$SRC_DIR" \( -name '*.jpg' -o -name '*.png' -o -name '*.webp' \) -print0 \
+  | xargs -0 -P "$THREADS" -I{} bash -c '
+      f="$1"
+      out="$2/$(basename "${f%.*}.webp")"
+      # 幂等：输出已存在且新于输入则跳过
+      if [[ -f "$out" && "$out" -nt "$f" ]]; then exit 0; fi
+      magick "$f" -strip -resize "${3}x>" -quality "$4" "$out"
+    ' _ {} "$OUT_DIR" "$MAX_W" "$QUALITY"
+
+# 汇总统计
+echo "--- 输出统计 ---"
+find "$OUT_DIR" -name '*.webp' | xargs identify -format "%f %wx%h %b\n"
+```
+
+特性：环境变量可配、`nproc` 自适应并行、`-nt` 实现增量跳过、错误时 `set -e` 立即退出。
+
+### 7.6 用 shell 函数固化常用风格
+
+```bash
+# 放入 ~/.bashrc / ~/.zshrc
+# 封面图：填满 1200x630（OG 图规格）
+og_cover() { magick "$1" -strip -resize '1200x630^' -gravity center -extent 1200x630 -quality 82 "${1%.*}-og.jpg"; }
+# 缩略图：最长边 400
+thumb() { magick "$1" -strip -resize '400x>' -quality 80 "${1%.*}-thumb.webp"; }
+# 统一压缩成 webp
+towebp() { magick "$1" -strip -resize "${2:-1600}x>" -quality "${3:-80}" "${1%.*}.webp"; }
+
+# 使用
+og_cover banner.png
+thumb photo.jpg
+towebp big.png 1200 75
+```
+
+### 7.7 批量加编号/时间戳与 EXIF 写入
+
+```bash
+# 批量加时间戳水印
+for f in *.jpg; do
+  magick "$f" -gravity southeast -pointsize 30 \
+    -fill "rgba(255,255,255,0.7)" \
+    -annotate +15+15 "$(date +%Y-%m-%d)" "stamped_$f"
+done
+
+# 写 EXIF（作者/版权/描述）
+magick in.jpg -set exif:Artist "BeauXbot" -set exif:Copyright "© 2024" out.jpg
+
+# 只读 EXIF 部分字段（配合 jq 解析）
+identify -format "%[EXIF:DateTimeOriginal]\n" photo.jpg
+```
+
+---

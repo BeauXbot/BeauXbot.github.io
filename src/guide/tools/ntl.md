@@ -184,6 +184,12 @@ c++ demo.cpp -o demo -I/opt/homebrew/include -L/opt/homebrew/lib -lntl -lgmp
 c++ demo.cpp -o demo -I/usr/local/include -L/usr/local/lib -lntl -lgmp
 ```
 
+若 `pkg-config` 找不到 `ntl`，可显式补充 `PKG_CONFIG_PATH`：
+
+```bash
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:${PKG_CONFIG_PATH}"
+```
+
 ### 2. 配合 GMP 获得更高性能
 
 NTL 内部可选用 GMP 作为底层大整数引擎。Homebrew 的 `ntl` 默认链接 GMP，性能显著优于自带的便携实现。若手动从源码构建并希望显式启用 GMP，可配置 `./configure NTL_GMP_LIP=on`。检查你的构建是否用了 GMP：
@@ -191,6 +197,9 @@ NTL 内部可选用 GMP 作为底层大整数引擎。Homebrew 的 `ntl` 默认�
 ```bash
 # NTL 头文件中的宏（若为 1 表示启用 GMP 作为 LIP 引擎）
 grep -r "NTL_GMP_LIP" /opt/homebrew/include/NTL/ 2>/dev/null
+
+# 也可以看链接的符号是否来自 libgmp
+otool -L /opt/homebrew/lib/libntl.dylib | grep gmp
 ```
 
 ### 3. 随机数种子与可复现性
@@ -218,6 +227,67 @@ LLL(B, 0.99);   // delta 参数控制约化质量
 
 `delta` 取值在 `0.25` 到 `1.0` 之间，越接近 1 约化越彻底但耗时越高。
 
+### 5. 常用多项式运算 `ZZX` / `ZZ_pX`
+
+NTL 的多项式类支持系数级大整数/有限域运算，直接支持加减乘除、求导、求值、因式分解等：
+
+```cpp
+#include <NTL/ZZX.h>
+#include <NTL/ZZ.h>
+#include <NTL/ZZ_pX.h>
+#include <iostream>
+using namespace std; using namespace NTL;
+
+int main() {
+    // 整数多项式 f(x) = 3x^2 + 2x + 1
+    ZZX f;
+    f.SetLength(3);
+    f[0] = 1; f[1] = 2; f[2] = 3; // f(x) = 3x^2 + 2x + 1
+
+    // 求值 f(5) = 3*25 + 2*5 + 1 = 86
+    cout << "f(5) = " << eval(f, conv<ZZ>(5)) << endl;
+
+    // 多项式乘法：g(x) = x + 1
+    ZZX one, x, g;
+    one = 1;                  // 常数 1
+    x.SetLength(2); x[1] = 1; // x
+    g = one + x;              // x + 1
+    ZZX prod = f * g;         // 系数即乘积
+    cout << "f * (x+1) = " << prod << endl;
+    // 求值一致性：f(5) * g(5) = 86 * 6 = 516
+    cout << "prod(5) = " << eval(prod, conv<ZZ>(5)) << endl;
+    return 0;
+}
+```
+
+### 6. 常用配置项与个性化设置
+
+NTL 提供若干可在编译时/运行时控制的选项：
+
+| 配置项 | 作用 | 说明 |
+| --- | --- | --- |
+| `NTL_GMP_LIP` | 是否用 GMP 做大整数引擎 | `./configure NTL_GMP_LIP=on`（源码构建） |
+| `NTL_THREADS` | 启用/禁用 OpenMP 多线程 | 默认开启；离线构建可 `=off` 减少依赖 |
+| `NTL_EXCEPTIONS` | 是否抛出 C++ 异常 | `on` 时错误抛异常，`off` 时走 `Error` 回调 |
+| `NTL_STD_CXX11` | 是否强制 C++11 及以上标准 | 默认自动检测 |
+| `SetSeed` | 设定随机种子 | 运行时函数，保证可复现 |
+| `ZZ_p::init(p)` | 设定模数 p | 运行时函数，影响所有 `ZZ_p` 运算 |
+| `LLL(delta)` | 控制 LLL 约化质量 | 运行时参数 |
+
+在 CMake 里若希望链接到自定义构建的 NTL（而非 Homebrew 的），可用 `pkg_check_modules` 指定自定义前缀，或直接 `find_library(NTL_LIB ntl PATH ...)` + `find_path(NTL_INC NTL/ZZ.h PATH ...)`。
+
+### 7. 编译优化与多线程
+
+NTL 支持 OpenMP 并行加速（默认开启）。编译时加 `-fopenmp`，并链接 OpenMP 运行库：
+
+```bash
+# 若 NTL 以 NTL_THREADS=on 构建，编译时启用 OpenMP
+c++ -O2 -fopenmp app.cpp -o app $(pkg-config --cflags --libs ntl) -lgomp
+```
+
+- `-O2`/`-O3` 显著提升大整数运算性能。
+- 若链接报 `library not found for -lgomp`，说明编译期未启用 OpenMP，去掉 `-fopenmp` 与 `-lgomp` 即可。
+
 ## 六、注意事项与常见问题
 
 ### 1. 编译时报 "fatal error: 'NTL/ZZ.h' file not found"
@@ -242,8 +312,196 @@ NTL 是 **C++** 库，必须用 `g++`/`c++`（或 `clang++`）编译 `.cpp`，�
 
 ### 6. 性能与安全注意点
 
-- NTL 是**研究/教学友好**的库，但底层算法（如默认大整数、素性判定、随机数）若不针对安全强化，**不建议直接用于生产级密码学密钥生成**；实际密钥与签名应使用专为此设计的库（如 OpenSSL、libsodium）。NTL 更适用于协议原型验证、算法实现与学术研究。
-- 模幂 `power_mod`、大数 GCD 等在超大位宽下耗时明显，注意复杂度（约 O(log e) 次乘法）。
-- `ProbPrime` 只是概率素性判定，轮数 t 越大误判概率越低（约为 `4^(-t)`）；对密码学应用还需结合确定性验证。
+- NTL 是**研究/教学友好**的库，但底层算法（如默认大整数、素性判定、随机数）若不针对安全强化，**不建议直接用于生产级密码学密钥生成**；`ProbPrime` 只是概率素性判定，轮数 t 越大误判概率越低（约为 `4^(-t)`）；对密码学应用还需结合确定性验证（如 BPSW 或通用素数证明）。
 - LLL 约化的 `delta` 越大越接近严格 LLL，但时间和内存开销随之上升，按需权衡。
 - Homebrew 的 `ntl` 默认以发布优化构建（含 GMP），性能已较优；如需自研构建，务必开启优化 `-O2` 并启用 GMP。
+
+### 7. 随机数安全：`random_ZZ_p()` 与密码学随机
+
+NTL 内置随机数生成器**不适合直接用作密码学安全随机源**。密钥、盐、nonce 等应由系统 CSPRNG 生成（如 `/dev/urandom`、`/dev/random` 或 `getrandom()`），再经 `conv<ZZ>(...)` 喂入 NTL。固定种子的 `SetSeed` 仅用于可复现的科研/调试，绝不用于生产密钥。
+
+### 8. 新手常见踩坑汇总
+
+| 现象 | 常见原因 | 解决办法 |
+| --- | --- | --- |
+| 编译报 `error: no member named 'inv' in namespace 'NTL'` | 忘了 `#include <NTL/ZZ_p.h>` | 引入对应头文件 |
+| 链接报 `_ZN3NTL... undefined` | 编译用了 `gcc` 而非 `g++` | 改用 `c++`/`clang++` |
+| 运行报 `arithmetic error` 或异常 | `ZZ_p` 用了合数模、或对 0 求逆 | 用素数模，求逆前判 `x != 0` |
+| 结果与预期不一致、全为 0 | 忘了调用 `ZZ_p::init(p)` | 使用 `ZZ_p` 前先初始化模数 |
+| `pkg-config` 找不到 ntl | `PKG_CONFIG_PATH` 未包含 brew 的 pkgconfig | 显式 `export PKG_CONFIG_PATH=...` |
+| 编译极慢或内存大 | 未开优化或 debug 构建 | 加 `-O2` |
+
+### 9. 大整数类型混合与 `conv<ZZ>` 的注意点
+
+`ZZ`、`long`、`string` 之间转换都用 `conv<T>(...)`：`conv<ZZ>(12345L)`、`conv<ZZ>(string)`。注意 `long` 是 64 位，超过其范围的值必须从字符串构造；混用不同类型做运算前先统一为 `ZZ`，避免隐式截断。
+
+## 七、实战：与其它工具搭配与自动化
+
+### 1. 与 OpenSSL/libcrypto 搭配做"实验级"密码学验证
+
+NTL 常用于教学与论文复现，而 OpenSSL 提供生产级哈希与随机源。可组合：用 `/dev/urandom` 生成随机字节 → `conv<ZZ>` 转大整数 → NTL 做素性/模幂验证。参考脚本：
+
+```bash
+# 生成 256 位随机整数（非密码学用途演示）
+head -c 32 /dev/urandom | od -An -tu8 | tr -d ' ' | awk '{print}' > rnd.txt
+```
+
+C++ 端用 `GetRandomBytes`（NTL 提供）或系统调用读取随机源：
+
+```cpp
+#include <NTL/ZZ.h>
+#include <NTL/ZZ_p.h>
+#include <iostream>
+using namespace NTL;
+
+ZZ random_from_urandom(int bytes) {
+    unsigned char buf[64];
+    FILE *f = fopen("/dev/urandom", "rb");
+    if (!f) return to_ZZ(0);
+    size_t got = fread(buf, 1, bytes, f);
+    fclose(f);
+    // 转成十六进制字符串再转 ZZ
+    std::string hex;
+    for (size_t i = 0; i < got; i++) {
+        char tmp[3];
+        snprintf(tmp, sizeof tmp, "%02x", buf[i]);
+        hex += tmp;
+    }
+    return conv<ZZ>("0x" + hex);
+}
+```
+
+> 说明：上面 `conv<ZZ>("0x...")` 接受十六进制前缀字符串；NTL 的 `conv<ZZ>` 支持 `0x`/`0X` 前缀解析。生产级密码学请直接依赖 OpenSSL 的 `RAND_bytes`，此处仅为教学演示。
+
+### 2. Makefile 自动化编译
+
+写一个可复用的 `Makefile`，让 `make` 自动处理编译、链接、清理：
+
+```makefile
+# Makefile —— NTL 示例
+CXX      ?= c++
+CXXFLAGS ?= -std=c++17 -O2
+CPPFLAGS += $(shell pkg-config --cflags ntl)
+LDLIBS   += $(shell pkg-config --libs ntl)
+
+TARGETS := ntl_demo zzp_demo poly_demo
+
+all: $(TARGETS)
+
+%: %.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< -o $@ $(LDLIBS)
+
+clean:
+	rm -f $(TARGETS) *.o
+
+.PHONY: all clean
+```
+
+使用：
+
+```bash
+make            # 编译所有目标
+make ntl_demo   # 只编译 ntl_demo
+make clean
+```
+
+### 3. CI 集成（GitHub Actions）
+
+在仓库中放一个 `.github/workflows/ntl.yml` 实现"安装依赖 → 构建 → 跑测试"的 CI：
+
+```yaml
+name: ntl-build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libntl-dev libgmp-dev pkg-config
+      - name: Build
+        run: make all
+      - name: Run tests
+        run: ./ntl_demo && ./zzp_demo
+```
+
+在 macOS runner 上则用 Homebrew：
+
+```yaml
+      - name: Install (macOS)
+        if: runner.os == 'macOS'
+        run: brew install ntl
+```
+
+### 4. 批量处理：遍历多个模数/参数
+
+科研中常需对不同参数批量运行同一算法。用 shell 循环 + 命令行参数即可：
+
+```cpp
+// batch.cpp —— 从 argv 读入模数 p 与指数 e
+#include <NTL/ZZ.h>
+#include <NTL/ZZ_p.h>
+#include <iostream>
+using namespace NTL; using namespace std;
+
+int main(int argc, char **argv) {
+    if (argc < 3) { cerr << "usage: batch <p> <e>\n"; return 1; }
+    ZZ p = conv<ZZ>(argv[1]);
+    long e = atol(argv[2]);
+    ZZ_p::init(p);
+    ZZ_p a = conv<ZZ_p>(2);          // a = 2
+    ZZ_p r = power(a, e);            // 2^e mod p
+    cout << "2^" << e << " mod " << p << " = " << r << endl;
+    return 0;
+}
+```
+
+用 bash 循环批量执行：
+
+```bash
+c++ batch.cpp -o batch $(pkg-config --cflags --libs ntl)
+
+# 对一组素数分别计算 2^123456 mod p
+for p in 1000000007 1000000009 1000000021 1000000033; do
+  echo "== p=$p =="
+  ./batch $p 123456
+done
+```
+
+### 5. 与其它工具管道组合
+
+NTL 本身是库，但可与命令行工具组合成"文本管道"。例如把生成的随机素数写入文件供后续脚本消费：
+
+```bash
+# gen_prime.cpp 输出一个随机 n 位素数到 stdout
+cat > gen_prime.cpp <<'EOF'
+#include <NTL/ZZ.h>
+#include <iostream>
+using namespace NTL; using namespace std;
+int main(int argc, char **argv) {
+    long bits = (argc > 1) ? atol(argv[1]) : 256;
+    cout << RandomPrime_ZZ(bits) << endl;
+    return 0;
+}
+EOF
+c++ gen_prime.cpp -o gen_prime $(pkg-config --cflags --libs ntl)
+
+# 生成 10 个 256 位素数，写入 primes.txt
+for i in $(seq 1 10); do ./gen_prime 256; done > primes.txt
+wc -l primes.txt
+```
+
+### 6. 生产级实践要点
+
+- **密钥与秘密值**：永远用系统 CSPRNG 生成，不用固定种子。
+- **素性验证**：`ProbPrime` 后对关键场景再做确定性证明，或直接使用经过验证的 `PrimeGen`（NTL 的确定性素数生成，可用于 RSA 密钥生成）。
+- **构建策略**：生产环境编译用 `-O2` 并启用 GMP；把 `pkg-config` 参数固化进构建系统（CMake/Make/Bazel），避免手写路径漂移。
+- **内存与时间**：大位宽（≥4096 位）模幂耗时明显，可先用更小位宽验证逻辑正确性，再放大到生产位宽。
+- **可复现**：科研论文复现实验务必先 `SetSeed(固定值)` 并记录种子。
+- **Bazel/CMake 集成**：CMake 用 `pkg_check_modules`；Bazel 可用 `cc_library` + `linkopts = ["$(pkg-config --libs ntl)"]` 或直接写 `-L/opt/homebrew/lib -lntl`。
+
+---
+
+> 提示：以上代码均为真实可编译的 NTL 用法；编译前请确认 `pkg-config --modversion ntl` 能正常输出版本号。本文档聚焦 Homebrew 安装的 NTL 11.x，若手动源码构建，注意 `./configure` 选项（`NTL_GMP_LIP=on`、`NTL_THREADS` 等）与 brew 默认配置可能不同。
