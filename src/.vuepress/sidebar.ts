@@ -6,12 +6,14 @@ export default sidebar({
     {
       text: "使用说明",
       icon: "book",
+      collapsible: true,
       link: "/guide/",
       children: [
         "/guide/",
         {
           text: "Homebrew 工具集",
           icon: "tools",
+          collapsible: true,
           link: "guide/tools/",
           children: [
             "guide/tools/bazel",
