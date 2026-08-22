@@ -62,8 +62,15 @@ tectonic --help
 | `tectonic --help` | 显示全部选项 | `tectonic --help` |
 | `tectonic --version` | 显示版本号 | `tectonic --version` |
 | `tectonic --chatter minimal FILE.tex` | 减少输出信息（安静模式） | `tectonic --chatter minimal main.tex` |
+| `tectonic -X new NAME` | 创建带项目骨架的新文档目录 | `tectonic -X new thesis` |
+| `tectonic -X init` | 在当前空目录初始化项目 | `tectonic -X init` |
+| `tectonic -X watch` | 监听源文件变化自动编译 | `tectonic -X watch` |
+| `tectonic -X build` | 在项目内按配置构建文档 | `tectonic -X build --open` |
+| `tectonic -X bundle search KEY` | 在项目资源包中搜索文件 | `tectonic -X bundle search .bib` |
+| `tectonic -X dump FILE` | 输出中间文件（aux/toc/log） | `tectonic -X dump main.aux` |
+| `tectonic -X show user-cache-dir` | 打印默认缓存目录路径 | `tectonic -X show user-cache-dir` |
 
-> 说明：`-o` 与 `--outdir` 是 0.15.x 新引入的输出选项；旧版部分行为（如往 `tectonic_aux_files` 目录写中间文件）在新版本中已统一收敛到 `--outdir`/`--keep-logs` 等机制。
+> 说明：`-o` 与 `--outdir` 是 0.15.x 新引入的输出选项；旧版部分行为（如往 `tectonic_aux_files` 目录写中间文件）在新版本中已统一收敛到 `--outdir`/`--keep-logs` 等机制。`-X` 是 0.15 起的实验性子命令体系，详见文末 7.7 节。
 
 ## 四、实际示例
 
@@ -474,3 +481,81 @@ latexindent 的规则可用 `latexindent.yaml` 定制（见 latexindent 专题�
 - **缓存即资产**：把缓存目录纳入 CI 缓存或私有镜像，让离线/内网环境也能秒级编译。
 - **不可信输入**：默认关闭 `shell_escape`；对用户上传或外部来源的 `.tex` 单独沙箱编译。
 - **多遍必开**：凡涉及目录/引用/文献的大文档，CI 里固定加 `--compile-all`，防止「本地 OK、CI 缺遍」的编号错乱。
+
+### 7.7 `-X` 实验性命令体系：大型项目的工作流入口
+
+tectonic 0.15 起引入了一套**实验性（experimental）子命令体系**，统一入口为 `tectonic -X`。它把「创建项目 → 编译 → 监听 → 管理资源」整合成一套工程化工作流，**特别适合大型 LaTeX 项目**。用 `tectonic -X --help` 可列出全部子命令：
+
+```bash
+tectonic -X          # 列出所有实验性子命令
+# build / bundle / compile / dump / init / new / show / watch
+```
+
+以下是在大型项目中常用的几个：
+
+#### ① `tectonic -X new` 与 `-X init`：创建标准项目骨架
+
+`-X new` 在当前目录生成一个带 `Tectonic.toml` 配置和 `main.tex` 入口的完整项目骨架，是**大型项目管理的基础**：
+
+```bash
+# 创建一个名为 thesis 的新项目目录
+tectonic -X new thesis
+cd thesis
+# 生成的内容包括 Tectonic.toml 与默认 main.tex
+
+# 或在当前空目录初始化
+tectonic -X init
+```
+
+项目根下的 `Tectonic.toml` 集中管理编译行为（输出目录、编译遍数、shell 转义开关等），比每次都敲一堆命令行参数更利于团队协作与 CI 复用。
+
+#### ② `tectonic -X watch`：监听源文件变化自动编译
+
+写大型文档时，`-X watch` 会**监听所有输入文件（含子章节、`.bib`、图片）的变化并自动重新编译**，省去手动触发。适合与编辑器分屏实时预览 PDF：
+
+```bash
+# 默认监听并执行 build
+tectonic -X watch
+
+# 监听时指定要执行的命令（默认是 build）
+tectonic -X watch -x build --keep-logs --open
+```
+
+配合 `--open` 每次编译完自动用系统 PDF 查看器打开，实现「改一下 → 自动刷新」的即时反馈循环。
+
+#### ③ `tectonic -X build`：在项目内构建文档
+
+在 `-X new` 建好的项目里，用 `-X build` 代替手写 `tectonic main.tex`：
+
+```bash
+tectonic -X build                 # 按 Tectonic.toml 构建
+tectonic -X build --keep-logs     # 保留日志便于排错
+tectonic -X build --open          # 构建后自动打开 PDF
+tectonic -X build --only-cached   # 只用本地缓存资源（离线构建）
+tectonic -X build --untrusted     # 把文档当不可信输入，关闭不安全特性
+```
+
+`--only-cached` 对离线/内网环境很有用；`--untrusted` 对编译外部来源文档更安全。
+
+#### ④ `tectonic -X bundle` 与 `-X dump`：管理文件包与中间产物
+
+- `tectonic -X bundle search 关键词`：在项目资源包中按名字过滤文件，排查某宏包/字体是否可用。
+- `tectonic -X bundle cat 文件名`：直接查看包内某文件的原始内容，便于检查缓存的格式定义。
+- `tectonic -X dump <文件名>`：执行一次**部分编译**并输出某个中间文件（如 `.aux`、`.log`、`.toc`），用于排查目录/引用编号问题。
+
+```bash
+# 查看项目里是否包含某字体/宏包
+tectonic -X bundle search .bib
+# 输出生成的 .aux 看交叉引用辅助信息
+tectonic -X dump main.aux
+```
+
+#### ⑤ `tectonic -X show`：查看环境信息
+
+```bash
+tectonic -X show user-cache-dir   # 打印默认缓存目录路径
+```
+
+配合 `TECTONIC_CACHE_DIR` 环境变量，可在脚本里动态获取并持久化缓存位置。
+
+> ⚠️ **注意**：`-X` 命令体系处于**实验阶段**，接口和参数在后续版本可能调整。跨版本升级后请以 `tectonic -X --help` 及各子命令 `--help` 的实际输出为准，勿在关键 CI 中依赖尚未稳定的行为。
