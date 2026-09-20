@@ -12,14 +12,14 @@ importers:
         specifier: 2.0.0-beta.66
         version: 2.0.0-beta.66
       vue:
-        specifier: ^3.5.42
-        version: 3.5.42
+        specifier: ^3.5.43
+        version: 3.5.43
       vuepress:
         specifier: 2.0.0-beta.66
-        version: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+        version: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
       vuepress-theme-hope:
         specifier: 2.0.0-beta.235
-        version: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+        version: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
 
 packages:
 
@@ -167,11 +167,6 @@ packages:
   '@babel/highlight@7.22.10':
     resolution: {integrity: sha512-78aUtVcT7MUscr0K5mIEnkwxPE0MaxkR5RxRwuHaQ+JuU5AmTPhY+do2mdzVTnIJJpyBglql2pehuBIWHug+WQ==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.22.11':
-    resolution: {integrity: sha512-R5zb8eJIBPJriQtbH/htEQy4k7E2dHWlD2Y2VT07JCzwYZHBxV5ZYtM0UhXSNMT74LyxuM+b1jdL7pSesXbC/g==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.29.8':
     resolution: {integrity: sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA==}
@@ -1008,41 +1003,41 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
 
-  '@vue/compiler-core@3.5.42':
-    resolution: {integrity: sha512-2Ye1ilMtKXxl8qZUrQ5j0CdgenFp/HFQmta6rfRyfEsTG69L6Wk+tWuNoHYHMx9E8tF2Slvdg1FuwDvAXdy1LQ==}
+  '@vue/compiler-core@3.5.43':
+    resolution: {integrity: sha512-zdiLhnbe1QQqgDT8xZMpNmyqZ3qlI+/Q/FHQco57Kwl/b05HhCzN6eVGN9QU9rbga4CrS0H5SYY8VGHZCt/1Hg==}
 
-  '@vue/compiler-dom@3.5.42':
-    resolution: {integrity: sha512-qbhQZEFmycr+ni/qyuccS4sucNN7VAbDfbkvNxWOX2VfgFm90MNs3/UhRNKoPMEIVn0F8gdlYjLPvqxHwHeQOA==}
+  '@vue/compiler-dom@3.5.43':
+    resolution: {integrity: sha512-PEZoAk3NQmsn/ejMzSOCyTYqwGqczrWm70PuhBKjjv1+TCoQAaO/zOqNwjV+honlNstT5ILxtc+8r8UUfj+iEQ==}
 
-  '@vue/compiler-sfc@3.5.42':
-    resolution: {integrity: sha512-fkCAFB4okcAANGMThboWnScp/gzWjU0ZSkVnjTIiplmMDq2uq0tIB3j+xVu4rhv5rvOgBySCysudmbMd6xRRqw==}
+  '@vue/compiler-sfc@3.5.43':
+    resolution: {integrity: sha512-FCbrG3XNCRl+js3huuKx4IVHBLTvMkJhVepjbxSPu1gn4yWLaYtGNQdjJGZaMytXB6qb76qQDDmDSLy/vkmleQ==}
 
-  '@vue/compiler-ssr@3.5.42':
-    resolution: {integrity: sha512-xmLk3wLkbizPAiLyomjgFFosf2ys9b5Ghb+oh/k2tnvipNz8OFrQOiTcWCzyK7MpBp9KkyGtfvgfLUivbmuGYA==}
+  '@vue/compiler-ssr@3.5.43':
+    resolution: {integrity: sha512-GF62orf7KiJX9RqrHNGrYBudsQGD0OhJ5nDs90O8UiDuS40+YMYomiXu6w6EuvtXuRDc3MSNis3EaaSKAVSWpg==}
 
   '@vue/devtools-api@6.5.0':
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
 
-  '@vue/reactivity@3.5.42':
-    resolution: {integrity: sha512-TzNNfKpb7hDxbQltwAut8VDQA5YP+BuRlxntHUuRjyKwlMvmAPbs3unhCvieijifY6vFfVBwsS7wG/C7uq+bEQ==}
+  '@vue/reactivity@3.5.43':
+    resolution: {integrity: sha512-G/c9GyOZNI2jVaaS6OX1EF1SSFSv7H0ERqNTl4+DTFMlZmB5eVAB53aLQNam/7NL2NPtaDD7RdVrzf8uJzMuOA==}
 
   '@vue/repl@2.5.8':
     resolution: {integrity: sha512-IvOlNhka4VKDQZS9FIceFFWyPibzqAUHyjHOoe8cMZmeP7H3H7mfMqvzQ0l1wjMAqqeEcgpFhSzMWsTEL4XZeA==}
 
-  '@vue/runtime-core@3.5.42':
-    resolution: {integrity: sha512-9uACtuHs7vJGkm5Bp3xu4xRDLFTIYy5DgxpToVjqGIAhAEKwQfsaLvKINhM6nFVp6bZPRFGdDqd1g52MqKsotA==}
+  '@vue/runtime-core@3.5.43':
+    resolution: {integrity: sha512-hU6U6VnVhBGQDpvlnnDlIB8ZGJBiOcgk2lh/0InltHiz3D8oSkluvuvY+do1G2H3+udeKFsmaBlgVYP7gXQzEw==}
 
-  '@vue/runtime-dom@3.5.42':
-    resolution: {integrity: sha512-rsCmhiWLaRxGltLwhlCWyYkFn7WAbKRh0q17eZ1A6Dq6eqc2ACQ61IIryxz0LrsvCzHSilLA9JHovVwM8CNE2g==}
+  '@vue/runtime-dom@3.5.43':
+    resolution: {integrity: sha512-Bb2Jc0YjjJdMt1SJmb9b2L/IWd3I8lIT9x9eS/xvvP9CiVgna0ffua74xKRmt4/uSJ+0r4iN8ex1jrqkhQGWQw==}
 
-  '@vue/server-renderer@3.5.42':
-    resolution: {integrity: sha512-2++5dUyYS4gvo7xQXSECUDhB7TS0aOl5SeVfC5qSq1Jgfhjvegw1zqhwTIR3imZ+QYPJQw9gfcFvXGAjGZ7ajQ==}
-
-  '@vue/shared@3.5.41':
-    resolution: {integrity: sha512-IOnwSCma8j+9xJT6b8H0dEYidC80NsYmNMlZxRsukYcSoGaDBohog5hDxzeUXdFeGWFA++vWvxqOmrr96VlqMA==}
+  '@vue/server-renderer@3.5.43':
+    resolution: {integrity: sha512-l2Ygjv9NehV94PSBxNWsAHC0j/eIIKbn92mBuWXAPGLnn6HfJ6MH5ubsd+Nk0YoZ5FRuxWI1P2VSoh+dbPQhCQ==}
 
   '@vue/shared@3.5.42':
     resolution: {integrity: sha512-2rPxex1jQf4jvl9MOHl6YaXCPcrNqz/FstMOEh3QWY+/OME9nQTvl9WYeCwhW7AFjaR0SnngZGlp/wkR6rkI6g==}
+
+  '@vue/shared@3.5.43':
+    resolution: {integrity: sha512-uksS7YGMR5NZyr4JNq0Rp+QyLns0ueaz20KwzIPW9R0LH1Vnt4E+XUM29PNseEbf1www2gOuhuDi5AKOIXag9Q==}
 
   '@vuepress/bundler-vite@2.0.0-beta.66':
     resolution: {integrity: sha512-qX/ROiieQYggGXz/NCr3i9okcuRdSPizUn/RqDWT26gGqLLtX/qab8/+LJrQ8WMN5XqrSYsSvbY8W3jb1Iu7tw==}
@@ -2490,8 +2485,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.26:
-    resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
+  postcss@8.5.28:
+    resolution: {integrity: sha512-RRuzqDtt5Y9h3quz5hWhK+TPnsmVs6WwSU6LkJMeY4HstUEDuYTG8UJSdawMRzmzAtV+KEoG8N3Qg2qLy5vM/A==}
     engines: {node: ^10 || ^12 || >=14}
 
   pretty-bytes@5.6.0:
@@ -2954,8 +2949,8 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
-  vue@3.5.42:
-    resolution: {integrity: sha512-4RyHQTbQvOPs3MfvUO1Sg0YRrKNnA0mAVtvpd12Tg1fKDN7OHBUl1IqSn8zGJjK9nI3NkNp8cgTpVrSZC5TTcA==}
+  vue@3.5.43:
+    resolution: {integrity: sha512-o5qZoksdnjIKvW1srZ3ab7pcDNYAerBjRe54D0LBLfRdCYFrSgBHVXokMas35czQc0//lmx4/tuY4ZNQ+Rf2Ng==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -3420,7 +3415,7 @@ snapshots:
       '@babel/helper-compilation-targets': 7.22.10
       '@babel/helper-module-transforms': 7.22.9(@babel/core@7.22.11(supports-color@7.2.0))
       '@babel/helpers': 7.22.11(supports-color@7.2.0)
-      '@babel/parser': 7.22.11
+      '@babel/parser': 7.29.8
       '@babel/template': 7.22.5
       '@babel/traverse': 7.22.11(supports-color@7.2.0)
       '@babel/types': 7.22.11
@@ -3434,7 +3429,7 @@ snapshots:
 
   '@babel/generator@7.22.10':
     dependencies:
-      '@babel/types': 7.22.11
+      '@babel/types': 7.29.8
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
       jsesc: 2.5.2
@@ -3566,7 +3561,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.22.5
       '@babel/traverse': 7.22.11(supports-color@7.2.0)
-      '@babel/types': 7.22.11
+      '@babel/types': 7.29.8
     transitivePeerDependencies:
       - supports-color
 
@@ -3575,10 +3570,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.22.5
       chalk: 2.4.2
       js-tokens: 4.0.0
-
-  '@babel/parser@7.22.11':
-    dependencies:
-      '@babel/types': 7.22.11
 
   '@babel/parser@7.29.8':
     dependencies:
@@ -4086,7 +4077,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.22.10
       '@babel/parser': 7.29.8
-      '@babel/types': 7.22.11
+      '@babel/types': 7.29.8
 
   '@babel/traverse@7.22.11(supports-color@7.2.0)':
     dependencies:
@@ -4097,7 +4088,7 @@ snapshots:
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.29.8
-      '@babel/types': 7.22.11
+      '@babel/types': 7.29.8
       debug: 4.3.4(supports-color@7.2.0)
       globals: 11.12.0
     transitivePeerDependencies:
@@ -4488,86 +4479,86 @@ snapshots:
 
   '@types/web-bluetooth@0.0.17': {}
 
-  '@vitejs/plugin-vue@4.3.3(vite@4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2))(vue@3.5.42)':
+  '@vitejs/plugin-vue@4.3.3(vite@4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2))(vue@3.5.43)':
     dependencies:
       vite: 4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2)
-      vue: 3.5.42
+      vue: 3.5.43
 
-  '@vue/compiler-core@3.5.42':
+  '@vue/compiler-core@3.5.43':
     dependencies:
       '@babel/parser': 7.29.8
-      '@vue/shared': 3.5.42
+      '@vue/shared': 3.5.43
       entities: 7.0.1
       estree-walker: 2.0.2
       source-map-js: 1.2.1
 
-  '@vue/compiler-dom@3.5.42':
+  '@vue/compiler-dom@3.5.43':
     dependencies:
-      '@vue/compiler-core': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/compiler-core': 3.5.43
+      '@vue/shared': 3.5.43
 
-  '@vue/compiler-sfc@3.5.42':
+  '@vue/compiler-sfc@3.5.43':
     dependencies:
       '@babel/parser': 7.29.8
-      '@vue/compiler-core': 3.5.42
-      '@vue/compiler-dom': 3.5.42
-      '@vue/compiler-ssr': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/compiler-core': 3.5.43
+      '@vue/compiler-dom': 3.5.43
+      '@vue/compiler-ssr': 3.5.43
+      '@vue/shared': 3.5.43
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.26
+      postcss: 8.5.28
       source-map-js: 1.2.1
 
-  '@vue/compiler-ssr@3.5.42':
+  '@vue/compiler-ssr@3.5.43':
     dependencies:
-      '@vue/compiler-dom': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/compiler-dom': 3.5.43
+      '@vue/shared': 3.5.43
 
   '@vue/devtools-api@6.5.0': {}
 
-  '@vue/reactivity@3.5.42':
+  '@vue/reactivity@3.5.43':
     dependencies:
-      '@vue/shared': 3.5.42
+      '@vue/shared': 3.5.43
 
   '@vue/repl@2.5.8': {}
 
-  '@vue/runtime-core@3.5.42':
+  '@vue/runtime-core@3.5.43':
     dependencies:
-      '@vue/reactivity': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/reactivity': 3.5.43
+      '@vue/shared': 3.5.43
 
-  '@vue/runtime-dom@3.5.42':
+  '@vue/runtime-dom@3.5.43':
     dependencies:
-      '@vue/reactivity': 3.5.42
-      '@vue/runtime-core': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/reactivity': 3.5.43
+      '@vue/runtime-core': 3.5.43
+      '@vue/shared': 3.5.43
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.42':
+  '@vue/server-renderer@3.5.43':
     dependencies:
-      '@vue/compiler-ssr': 3.5.42
-      '@vue/runtime-dom': 3.5.42
-      '@vue/shared': 3.5.42
-
-  '@vue/shared@3.5.41': {}
+      '@vue/compiler-ssr': 3.5.43
+      '@vue/runtime-dom': 3.5.43
+      '@vue/shared': 3.5.43
 
   '@vue/shared@3.5.42': {}
 
+  '@vue/shared@3.5.43': {}
+
   '@vuepress/bundler-vite@2.0.0-beta.66(@types/node@20.5.6)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)':
     dependencies:
-      '@vitejs/plugin-vue': 4.3.3(vite@4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2))(vue@3.5.42)
+      '@vitejs/plugin-vue': 4.3.3(vite@4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2))(vue@3.5.43)
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      autoprefixer: 10.4.15(postcss@8.5.26)
+      autoprefixer: 10.4.15(postcss@8.5.28)
       connect-history-api-fallback: 2.0.0
-      postcss: 8.5.26
-      postcss-load-config: 4.0.1(postcss@8.5.26)
+      postcss: 8.5.28
+      postcss-load-config: 4.0.1(postcss@8.5.28)
       rollup: 3.28.1
       vite: 4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2)
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     transitivePeerDependencies:
       - '@types/node'
       - '@vue/composition-api'
@@ -4599,9 +4590,9 @@ snapshots:
     dependencies:
       '@vue/devtools-api': 6.5.0
       '@vuepress/shared': 2.0.0-beta.66
-      '@vueuse/core': 10.3.0(vue@3.5.42)
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - typescript
@@ -4612,7 +4603,7 @@ snapshots:
       '@vuepress/markdown': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4645,8 +4636,8 @@ snapshots:
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       ts-debounce: 4.0.0
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4658,7 +4649,7 @@ snapshots:
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       ts-debounce: 4.0.0
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4685,7 +4676,7 @@ snapshots:
       '@vuepress/markdown': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4707,7 +4698,7 @@ snapshots:
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       medium-zoom: 1.0.8
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4718,8 +4709,8 @@ snapshots:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4751,7 +4742,7 @@ snapshots:
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4760,7 +4751,7 @@ snapshots:
   '@vuepress/shared@2.0.0-beta.66':
     dependencies:
       '@mdit-vue/types': 0.12.0
-      '@vue/shared': 3.5.41
+      '@vue/shared': 3.5.42
 
   '@vuepress/theme-default@2.0.0-beta.66(supports-color@7.2.0)':
     dependencies:
@@ -4778,10 +4769,10 @@ snapshots:
       '@vuepress/plugin-theme-data': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       sass: 1.66.1
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
@@ -4803,31 +4794,31 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vueuse/core@10.3.0(vue@3.5.42)':
+  '@vueuse/core@10.3.0(vue@3.5.43)':
     dependencies:
       '@types/web-bluetooth': 0.0.17
       '@vueuse/metadata': 10.3.0
-      '@vueuse/shared': 10.3.0(vue@3.5.42)
-      vue-demi: 0.14.5(vue@3.5.42)
+      '@vueuse/shared': 10.3.0(vue@3.5.43)
+      vue-demi: 0.14.5(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
   '@vueuse/metadata@10.3.0': {}
 
-  '@vueuse/shared@10.3.0(vue@3.5.42)':
+  '@vueuse/shared@10.3.0(vue@3.5.43)':
     dependencies:
-      vue-demi: 0.14.5(vue@3.5.42)
+      vue-demi: 0.14.5(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
 
   '@waline/client@2.15.6':
     dependencies:
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       autosize: 6.0.1
       marked: 4.3.0
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@vue/composition-api'
       - typescript
@@ -4899,14 +4890,14 @@ snapshots:
 
   at-least-node@1.0.0: {}
 
-  autoprefixer@10.4.15(postcss@8.5.26):
+  autoprefixer@10.4.15(postcss@8.5.28):
     dependencies:
       browserslist: 4.21.10
       caniuse-lite: 1.0.30001522
       fraction.js: 4.2.1
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.26
+      postcss: 8.5.28
       postcss-value-parser: 4.2.0
 
   autosize@6.0.1: {}
@@ -6346,16 +6337,16 @@ snapshots:
 
   pngjs@5.0.0: {}
 
-  postcss-load-config@4.0.1(postcss@8.5.26):
+  postcss-load-config@4.0.1(postcss@8.5.28):
     dependencies:
       lilconfig: 2.1.0
       yaml: 2.3.1
     optionalDependencies:
-      postcss: 8.5.26
+      postcss: 8.5.28
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.26:
+  postcss@8.5.28:
     dependencies:
       nanoid: 3.3.18
       picocolors: 1.1.1
@@ -6780,7 +6771,7 @@ snapshots:
   vite@4.4.9(@types/node@20.5.6)(sass@1.66.1)(terser@5.19.2):
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.5.26
+      postcss: 8.5.28
       rollup: 3.28.1
     optionalDependencies:
       '@types/node': 20.5.6
@@ -6788,61 +6779,61 @@ snapshots:
       sass: 1.66.1
       terser: 5.19.2
 
-  vue-demi@0.14.5(vue@3.5.42):
+  vue-demi@0.14.5(vue@3.5.43):
     dependencies:
-      vue: 3.5.42
+      vue: 3.5.43
 
-  vue-router@4.2.4(vue@3.5.42):
+  vue-router@4.2.4(vue@3.5.43):
     dependencies:
       '@vue/devtools-api': 6.5.0
-      vue: 3.5.42
+      vue: 3.5.43
 
-  vue@3.5.42:
+  vue@3.5.43:
     dependencies:
-      '@vue/compiler-dom': 3.5.42
-      '@vue/compiler-sfc': 3.5.42
-      '@vue/runtime-dom': 3.5.42
-      '@vue/server-renderer': 3.5.42
-      '@vue/shared': 3.5.42
+      '@vue/compiler-dom': 3.5.43
+      '@vue/compiler-sfc': 3.5.43
+      '@vue/runtime-dom': 3.5.43
+      '@vue/server-renderer': 3.5.43
+      '@vue/shared': 3.5.43
 
-  vuepress-plugin-auto-catalog@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-auto-catalog@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-components: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-components: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-blog2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-blog2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       chokidar: 3.5.3
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-comment2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-comment2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
@@ -6851,25 +6842,25 @@ snapshots:
       artalk: 2.5.5
       giscus: 1.3.0
       twikoo: 1.6.17
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-components@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-components@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@stackblitz/sdk': 1.9.0
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       artplayer: 5.0.9
       balloon-css: 1.2.0
       create-codepen: 0.0.3
@@ -6879,71 +6870,71 @@ snapshots:
       plyr: 3.7.8
       qrcode: 1.5.3
       vidstack: 0.6.13
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-reading-time2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-reading-time2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-copy-code2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-copy-code2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       balloon-css: 1.2.0
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-copyright2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-copyright2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      '@vueuse/core': 10.3.0(vue@3.5.43)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-feed2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-feed2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       cheerio: 1.0.0-rc.12
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
       xml-js: 1.6.11
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-md-enhance@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-md-enhance@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@babel/core': 7.22.11(supports-color@7.2.0)
       '@mdit/plugin-align': 0.4.8
@@ -6971,7 +6962,7 @@ snapshots:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       balloon-css: 1.2.0
       chart.js: 4.4.0
       echarts: 5.4.3
@@ -6981,135 +6972,135 @@ snapshots:
       markdown-it: 13.0.1
       mermaid: 10.3.1(supports-color@7.2.0)
       reveal.js: 4.5.0
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-photo-swipe@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-photo-swipe@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       photoswipe: 5.3.8
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-pwa2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-pwa2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       mitt: 3.0.1
       register-service-worker: 1.7.2
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
       workbox-build: 7.0.0(supports-color@7.2.0)
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@types/babel__core'
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-reading-time2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-reading-time2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
-      vue: 3.5.42
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-rtl@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-rtl@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-sass-palette@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-sass-palette@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       chokidar: 3.5.3
       sass: 1.66.1
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-seo2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-seo2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-plugin-sitemap2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-plugin-sitemap2@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
       sitemap: 7.1.1
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-shared@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-shared@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       cheerio: 1.0.0-rc.12
       dayjs: 1.11.9
       execa: 7.2.0
@@ -7117,17 +7108,17 @@ snapshots:
       gray-matter: 4.0.3
       semver: 7.5.4
       striptags: 3.2.0
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-theme-hope@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)):
+  vuepress-theme-hope@2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)):
     dependencies:
       '@vuepress/cli': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/client': 2.0.0-beta.66
@@ -7141,47 +7132,47 @@ snapshots:
       '@vuepress/plugin-theme-data': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/shared': 2.0.0-beta.66
       '@vuepress/utils': 2.0.0-beta.66(supports-color@7.2.0)
-      '@vueuse/core': 10.3.0(vue@3.5.42)
+      '@vueuse/core': 10.3.0(vue@3.5.43)
       balloon-css: 1.2.0
       bcrypt-ts: 4.0.0
       cheerio: 1.0.0-rc.12
       chokidar: 3.5.3
       gray-matter: 4.0.3
-      vue: 3.5.42
-      vue-router: 4.2.4(vue@3.5.42)
-      vuepress-plugin-auto-catalog: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-blog2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-comment2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-components: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-copy-code2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-copyright2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-feed2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-md-enhance: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-photo-swipe: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-pwa2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-reading-time2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-rtl: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-seo2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-plugin-sitemap2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
-      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42))
+      vue: 3.5.43
+      vue-router: 4.2.4(vue@3.5.43)
+      vuepress-plugin-auto-catalog: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-blog2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-comment2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-components: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-copy-code2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-copyright2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-feed2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-md-enhance: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-photo-swipe: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-pwa2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-reading-time2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-rtl: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-sass-palette: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-seo2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-plugin-sitemap2: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
+      vuepress-shared: 2.0.0-beta.235(supports-color@7.2.0)(vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))(vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43))
     optionalDependencies:
-      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@types/babel__core'
       - '@vue/composition-api'
       - supports-color
       - typescript
 
-  vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42):
+  vuepress-vite@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43):
     dependencies:
       '@vuepress/bundler-vite': 2.0.0-beta.66(@types/node@20.5.6)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)
       '@vuepress/cli': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/client': 2.0.0-beta.66
       '@vuepress/core': 2.0.0-beta.66(supports-color@7.2.0)
       '@vuepress/theme-default': 2.0.0-beta.66(supports-color@7.2.0)
-      vue: 3.5.42
+      vue: 3.5.43
     transitivePeerDependencies:
       - '@types/node'
       - '@vue/composition-api'
@@ -7196,9 +7187,9 @@ snapshots:
       - ts-node
       - typescript
 
-  vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42):
+  vuepress@2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43):
     dependencies:
-      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.42)
+      vuepress-vite: 2.0.0-beta.66(@types/node@20.5.6)(@vuepress/client@2.0.0-beta.66)(sass@1.66.1)(supports-color@7.2.0)(terser@5.19.2)(vue@3.5.43)
     transitivePeerDependencies:
       - '@types/node'
       - '@vue/composition-api'
